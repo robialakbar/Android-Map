@@ -2,8 +2,10 @@ package com.example.robialakbarmap;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.location.LocationListener;
 import android.os.Bundle;
 
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -12,6 +14,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+    // Menambahkan ini juga
 
     private GoogleMap mMap;
 
@@ -42,5 +45,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng AtmaLuhur = new LatLng(-2.086742, 106.111538);
         mMap.addMarker(new MarkerOptions().position(AtmaLuhur).title("Posisi di ISB Atma Luhur"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(AtmaLuhur));
+
+        // Zoom in and Zoom Out
+        mMap.getUiSettings().setMyLocationButtonEnabled(true);
+        mMap.getUiSettings().setZoomControlsEnabled(true);
+        mMap.getUiSettings().setCompassEnabled(true);
+        mMap.getUiSettings().setMapToolbarEnabled(true);
     }
 }
